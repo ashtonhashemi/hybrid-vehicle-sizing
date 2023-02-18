@@ -1,0 +1,13 @@
+function gn = GearSelector(dri)
+
+% shifting strategy %
+VA  = 3.6*(dri.v(1:end-1) + dri.v(2:end))/2;
+gforw  = 1*(VA <= 15) + 2*(VA > 15  & VA <= 45) + ...
+3*(VA > 45  & VA <= 75) + 4*(VA > 75  & VA <= 110) + ...
+5*(VA > 110);
+gback =  1*(VA <= 10) + 2*(VA > 10  & VA <= 35) + ...
+3*(VA > 35  & VA <= 65) + 4*(VA > 65  & VA <= 100) + ...
+5*(VA > 100);
+gn = (diff(dri.v)>= 0).*gforw + (diff(dri.v)< 0).*gback; 
+
+end

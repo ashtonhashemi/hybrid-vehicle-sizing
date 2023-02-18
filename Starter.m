@@ -1,0 +1,3 @@
+clc;
+addpath([cd '\Model\Engine'],[cd '\Model\Motor'],[cd '\Model\Battery'],[cd '\Extra']...
+    ,cd,[cd '\EMS'],[cd '\Model'],[cd '\General'],[cd '\Sizing']);
